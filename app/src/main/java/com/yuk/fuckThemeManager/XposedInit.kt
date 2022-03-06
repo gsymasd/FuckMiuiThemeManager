@@ -13,7 +13,7 @@ class XposedInit : IXposedHookLoadPackage, IXposedHookZygoteInit {
                 DrmManager::class.java, "isLegal",
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
-                        param.result = true
+                        param.result = DrmManager.DrmResult.DRM_SUCCESS
                     }
                 })
         } catch (t: Throwable) {
@@ -70,20 +70,6 @@ class XposedInit : IXposedHookLoadPackage, IXposedHookZygoteInit {
     override fun handleLoadPackage(lpparam: XC_LoadPackage.LoadPackageParam) {
         when (lpparam.packageName) {
             "com.android.thememanager" -> {
-                try {
-                    XposedHelpers.findAndHookMethod(
-                        "com.android.thememanager.e.a.d",
-                        lpparam.classLoader,
-                        "a",
-                        "com.android.thememanager.basemodule.resource.model.Resource",
-                        object : XC_MethodHook() {
-                            override fun beforeHookedMethod(param: MethodHookParam) {
-                                param.result = DrmManager.DrmResult.DRM_SUCCESS
-                            }
-                        })
-                } catch (t: Throwable) {
-                    XposedBridge.log(t)
-                }
                 try {
                     XposedHelpers.findAndHookMethod(
                         "com.android.thememanager.basemodule.resource.model.Resource",
