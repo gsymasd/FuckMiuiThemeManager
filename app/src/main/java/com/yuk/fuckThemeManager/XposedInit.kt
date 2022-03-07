@@ -12,7 +12,7 @@ class XposedInit : IXposedHookLoadPackage, IXposedHookZygoteInit {
             XposedBridge.hookAllMethods(
                 DrmManager::class.java, "isLegal",
                 object : XC_MethodReplacement() {
-                    override fun replaceHookedMethod(param: MethodHookParam?): Any {
+                    override fun replaceHookedMethod(param: MethodHookParam): DrmManager.DrmResult {
                         return DrmManager.DrmResult.DRM_SUCCESS
                     }
                 })
@@ -23,7 +23,7 @@ class XposedInit : IXposedHookLoadPackage, IXposedHookZygoteInit {
             XposedBridge.hookAllMethods(
                 DrmManager::class.java, "isPermanentRights",
                 object : XC_MethodReplacement() {
-                    override fun replaceHookedMethod(param: MethodHookParam?): Any {
+                    override fun replaceHookedMethod(param: MethodHookParam): Boolean {
                         return true
                     }
                 })
@@ -34,7 +34,7 @@ class XposedInit : IXposedHookLoadPackage, IXposedHookZygoteInit {
             XposedBridge.hookAllMethods(
                 DrmManager::class.java, "isRightsFileLegal",
                 object : XC_MethodReplacement() {
-                    override fun replaceHookedMethod(param: MethodHookParam?): Any {
+                    override fun replaceHookedMethod(param: MethodHookParam): Boolean {
                         return true
                     }
                 })
@@ -45,7 +45,7 @@ class XposedInit : IXposedHookLoadPackage, IXposedHookZygoteInit {
             XposedBridge.hookAllMethods(
                 DrmManager::class.java, "isSupportAd",
                 object : XC_MethodReplacement() {
-                    override fun replaceHookedMethod(param: MethodHookParam?): Any {
+                    override fun replaceHookedMethod(param: MethodHookParam): Boolean {
                         return false
                     }
                 }
@@ -58,7 +58,7 @@ class XposedInit : IXposedHookLoadPackage, IXposedHookZygoteInit {
                 DrmManager::class.java, "setSupportAd",
                 object : XC_MethodHook() {
                     override fun beforeHookedMethod(param: MethodHookParam) {
-                        param.args[1] = true
+                        param.args[1] = false
                     }
                 }
             )
@@ -100,7 +100,8 @@ class XposedInit : IXposedHookLoadPackage, IXposedHookZygoteInit {
                         "com.android.thememanager.basemodule.resource.model.Resource",
                         lpparam.classLoader,
                         "setProductBought",
-                        Boolean::class.java, object : XC_MethodHook() {
+                        Boolean::class.java,
+                        object : XC_MethodHook() {
                             override fun beforeHookedMethod(param: MethodHookParam) {
                                 param.args[0] = true
                             }
