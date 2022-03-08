@@ -7,5 +7,5 @@ dependencyResolutionManagement {
     }
 }
 
-rootProject.name = "FuckThemeManager"
+rootProject.name = "FuckMiuiThemeManager"
 include(":app")

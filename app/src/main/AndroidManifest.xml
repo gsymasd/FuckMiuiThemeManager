@@ -1,19 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.yuk.fuckThemeManager">
+    package="com.yuk.fuckMiuiThemeManager">
 
     <application
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@drawable/ic_launcher"
         android:label="Miui 主题破解"
-        android:roundIcon="@mipmap/ic_launcher_round"
-        android:supportsRtl="true">
+        android:supportsRtl="false">
         <meta-data
             android:name="xposedscope"
             android:resource="@array/xposed_scope" />
 
         <meta-data
             android:name="xposeddescription"
-            android:value="字面意思" />
+            android:value="作用域必须包含主题壁纸及系统框架，否则会恢复默认。" />
 
         <meta-data
             android:name="xposedminversion"

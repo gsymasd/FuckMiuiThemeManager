@@ -1,4 +1,4 @@
-package com.yuk.fuckThemeManager
+package com.yuk.fuckMiuiThemeManager
 
 import de.robv.android.xposed.*
 import de.robv.android.xposed.IXposedHookZygoteInit.StartupParam

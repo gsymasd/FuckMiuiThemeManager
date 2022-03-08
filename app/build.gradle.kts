@@ -9,7 +9,7 @@ android {
     compileSdk = 32
     buildToolsVersion = "32.0.0"
     defaultConfig {
-        applicationId = "com.yuk.fuckThemeManager"
+        applicationId = "com.yuk.fuckMiuiThemeManager"
         minSdk = 28
         targetSdk = 32
         versionCode = 11
@@ -37,7 +37,7 @@ android {
         }
         applicationVariants.all {
             outputs.all {
-                (this as BaseVariantOutputImpl).outputFileName = "FuckThemeManager-$versionName($versionCode)-$name.apk"
+                (this as BaseVariantOutputImpl).outputFileName = "FuckMiuiThemeManager-$versionName($versionCode)-$name.apk"
             }
         }
     }
