@@ -2,7 +2,9 @@
 
 这是一个适用于中国版 MIUI 的主题破解。
 
-[![Stars](https://img.shields.io/github/stars/qqlittleice/FuckMiuiThemeManager?label=stars)](https://github.com/YuKongA/Unlock_MIUI_ThemeManager) [![Release](https://img.shields.io/github/v/release/qqlittleice/FuckMiuiThemeManager?label=release)](https://github.com/YuKongA/Unlock_MIUI_ThemeManager/releases/latest) [![Download](https://img.shields.io/github/downloads/qqlittleice/FuckMiuiThemeManager/total)](https://github.com/YuKongA/Unlock_MIUI_ThemeManager/releases)
+[![Stars](https://img.shields.io/github/stars/qqlittleice/FuckMiuiThemeManager?label=stars)](https://github.com/Xposed-Modules-Repo/com.yuk.fuckmiuithememanager) 
+[![Release](https://img.shields.io/github/v/release/Xposed-Modules-Repo/com.yuk.fuckmiuithememanager?label=release)](https://github.com/Xposed-Modules-Repo/com.yuk.fuckmiuithememanager/releases/latest) 
+[![Download](https://img.shields.io/github/downloads/Xposed-Modules-Repo/com.yuk.fuckmiuithememanager/total)](https://github.com/Xposed-Modules-Repo/com.yuk.fuckmiuithememanager/releases)
 
 ## 功能
 
@@ -14,4 +16,3 @@
 ## 注意事项
 
 - 作用域必须包含主题壁纸及系统框架，否则会不定时恢复默认主题。
-
