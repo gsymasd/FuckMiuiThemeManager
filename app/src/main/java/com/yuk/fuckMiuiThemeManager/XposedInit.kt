@@ -11,42 +11,45 @@ class XposedInit : IXposedHookLoadPackage, IXposedHookZygoteInit {
         try {
             XposedBridge.hookAllMethods(
                 DrmManager::class.java, "isLegal",
-                object : XC_MethodReplacement() {
-                    override fun replaceHookedMethod(param: MethodHookParam): DrmManager.DrmResult {
-                        return DrmManager.DrmResult.DRM_SUCCESS
+                object : XC_MethodHook() {
+                    override fun beforeHookedMethod(param: MethodHookParam) {
+                        param.result = DrmManager.DrmResult.DRM_SUCCESS
                     }
-                })
+                }
+            )
         } catch (t: Throwable) {
             XposedBridge.log(t)
         }
         try {
             XposedBridge.hookAllMethods(
                 DrmManager::class.java, "isPermanentRights",
-                object : XC_MethodReplacement() {
-                    override fun replaceHookedMethod(param: MethodHookParam): Boolean {
-                        return true
+                object : XC_MethodHook() {
+                    override fun beforeHookedMethod(param: MethodHookParam) {
+                        param.result = true
                     }
-                })
+                }
+            )
         } catch (t: Throwable) {
             XposedBridge.log(t)
         }
         try {
             XposedBridge.hookAllMethods(
                 DrmManager::class.java, "isRightsFileLegal",
-                object : XC_MethodReplacement() {
-                    override fun replaceHookedMethod(param: MethodHookParam): Boolean {
-                        return true
+                object : XC_MethodHook() {
+                    override fun beforeHookedMethod(param: MethodHookParam) {
+                        param.result = true
                     }
-                })
+                }
+            )
         } catch (t: Throwable) {
             XposedBridge.log(t)
         }
         try {
             XposedBridge.hookAllMethods(
                 DrmManager::class.java, "isSupportAd",
-                object : XC_MethodReplacement() {
-                    override fun replaceHookedMethod(param: MethodHookParam): Boolean {
-                        return false
+                object : XC_MethodHook() {
+                    override fun beforeHookedMethod(param: MethodHookParam) {
+                        param.result = false
                     }
                 }
             )
@@ -199,6 +202,23 @@ class XposedInit : IXposedHookLoadPackage, IXposedHookZygoteInit {
                             override fun afterHookedMethod(param: MethodHookParam) {
                                 XposedHelpers.setObjectField(param.thisObject, "productPrice", 0)
                                 XposedHelpers.setObjectField(param.thisObject, "bought", true)
+                            }
+                        })
+                } catch (t: Throwable) {
+                    XposedBridge.log(t)
+                }
+                try {
+                    XposedHelpers.findAndHookMethod(
+                        "com.android.thememanager.basemodule.ad.model.AdInfoResponse",
+                        lpparam.classLoader,
+                        "isAdValid",
+                        XposedHelpers.findClass(
+                            "com.android.thememanager.basemodule.ad.model.AdInfo",
+                            lpparam.classLoader
+                        ),
+                        object : XC_MethodHook() {
+                            override fun beforeHookedMethod(param: MethodHookParam) {
+                                param.result = false
                             }
                         })
                 } catch (t: Throwable) {
