@@ -12,8 +12,8 @@ android {
         applicationId = "com.yuk.fuckMiuiThemeManager"
         minSdk = 28
         targetSdk = 32
-        versionCode = 11
-        versionName = "1.1"
+        versionCode = 12
+        versionName = "1.2"
     }
     buildTypes {
         release {
@@ -37,7 +37,7 @@ android {
         }
         applicationVariants.all {
             outputs.all {
-                (this as BaseVariantOutputImpl).outputFileName = "FuckMiuiThemeManager-$versionName($versionCode)-$name.apk"
+                (this as BaseVariantOutputImpl).outputFileName = "FuckMiuiThemeManager-$versionName-$name.apk"
             }
         }
     }
