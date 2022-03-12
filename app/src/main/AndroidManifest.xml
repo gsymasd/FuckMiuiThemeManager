@@ -12,7 +12,7 @@
 
         <meta-data
             android:name="xposeddescription"
-            android:value="作用域必须同时包含主题壁纸及系统框架，否则会恢复默认。系统框架勾选后要重启手机才能生效，不要再问为啥还是恢复默认了。" />
+            android:value="作用域必须同时包含主题壁纸及系统框架，否则会恢复默认。且系统框架生效需重启手机！！" />
 
         <meta-data
             android:name="xposedminversion"
